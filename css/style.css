@@ -1,0 +1,56 @@
+header,footer{
+    width: 96%;
+    padding: 50px 2%;
+    background-color: #CAE8F2;    
+}
+header{
+    font-size: 30px;
+    top: 0; 
+}
+footer{
+    font-size: 20px;
+    bottom: 0;
+    position: fixed;
+}
+section{
+    display: table;
+    width: 100%;
+}
+.container-fluid{
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    font-size: 24px;
+}
+
+.timeZoneContainer{
+    width: 871px;
+    height: auto;
+    background-color: #F2F2F5;
+    float: left;
+    margin-left: 80px;
+    padding: 20px;
+}
+.timeZoneBox{
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+}
+.dateRowsDiv{
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: left;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.dateRowLabel{
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.dateRowvalues{
+    font-size: 16px;
+}
+
+
