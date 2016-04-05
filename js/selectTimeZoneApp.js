@@ -20,13 +20,15 @@ window.onload = function(){
       currentTimeToSelectedZoneConversion();
       choosenDateToSelectedZoneConversion();
     })
-
+    
+    /*Convert corrent time of browser into selected timezone*/
     function currentTimeToSelectedZoneConversion(){
       var currentTimeinUTC = new Date(tzName).toUTCString();
       var currentTimeinNewZone = moment.tz(currentTimeinUTC, $("#selectedZone").val());
       $("#currentTimeinNewZone").text(currentTimeinNewZone);
     }
 
+    /*Convert selected date from datepicker into selected timezone*/
     function choosenDateToSelectedZoneConversion(){
       var selectedDateinLocaltimeZone = new Date($("#mirror_field").val());
       var slectedDateInUTC = selectedDateinLocaltimeZone.toUTCString();//selected date to UTC
