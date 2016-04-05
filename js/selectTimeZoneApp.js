@@ -1,8 +1,8 @@
-window.onload = function(){	   
-	var tzName = moment().zone(new Date().getTimezoneOffset());//get browser timezone
-	$('#selectedZone').timezones();//Timezone dropdown  
-  document.getElementById("originalTimezoneVal").innerHTML = tzName;	
-	currentTimeToSelectedZoneConversion();  
+window.onload = function(){    
+  var tzName = moment().zone(new Date().getTimezoneOffset());//get browser timezone
+  $('#selectedZone').timezones();//Timezone dropdown  
+  document.getElementById("originalTimezoneVal").innerHTML = tzName;  
+  currentTimeToSelectedZoneConversion();  
   
   $(".form_datetime").change(function(e){ //selecting date 
     choosenDateToSelectedZoneConversion();
@@ -20,13 +20,15 @@ window.onload = function(){
       currentTimeToSelectedZoneConversion();
       choosenDateToSelectedZoneConversion();
     })
-
+    
+    /*Convert corrent time of browser into selected timezone*/
     function currentTimeToSelectedZoneConversion(){
       var currentTimeinUTC = new Date(tzName).toUTCString();
       var currentTimeinNewZone = moment.tz(currentTimeinUTC, $("#selectedZone").val());
       $("#currentTimeinNewZone").text(currentTimeinNewZone);
     }
 
+    /*Convert selected date from datepicker into selected timezone*/
     function choosenDateToSelectedZoneConversion(){
       var selectedDateinLocaltimeZone = new Date($("#mirror_field").val());
       var slectedDateInUTC = selectedDateinLocaltimeZone.toUTCString();//selected date to UTC
