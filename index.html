@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>    
+	<title>Choose Timezone Application</title>
+	
+	
+	<link rel="stylesheet" type="text/css" href="http://www.malot.fr/bootstrap-datetimepicker/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="http://www.malot.fr/bootstrap-datetimepicker/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+	<script type="text/javascript" src="js/libs/jquery-2.2.0.min.js"></script>    
+    <script type="text/javascript" src="js/libs/moment.js"></script>
+	<script type="text/javascript" src="js/libs/moment-timezone.js"></script>
+	<script type="text/javascript" src="js/libs/timezones.full.js"></script>
+	<script type="text/javascript" src="js/selectTimeZoneApp.js"></script>	
+
+   <script type="text/javascript" src="http://www.malot.fr/bootstrap-datetimepicker/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?t=20130302"></script>
+    
+	<script type="text/javascript">
+     	var sectionHeight = window.innerHeight-255+"px";
+     	function styleSection(){
+     		$("section").css("height",sectionHeight);
+     	}
+	</script>	
+</head>
+<body onload="styleSection()">
+	<header>Choose Timezone Application</header>
+	    <section>	       
+	    	<div class="container-fluid">
+	    	  <div class="timeZoneContainer" align="center">
+	    	  	<div class="timeZoneBox">
+	    	  		<div class="dateRowsDiv"><span class="dateRowLabel">Original Timezone of Browser:</span><span class="dateRowvalues" id="originalTimezoneVal"></span></div>
+
+	    	  		<div class="dateRowsDiv"><span class="dateRowLabel">Timezone of the app:</span><span class="dateRowvalues"><select class="form-control" id="selectedZone"></select>
+                     </span><span>Current Time:</span><span id="currentTimeinNewZone"></span></div>
+
+	    	  		<div class="dateRowsDiv"><span class="dateRowLabel">Choose a date(browser's default Timezone):</span><span class="dateRowvalues">
+
+                         <div class="input-append date form_datetime" data-date="2016-04-01T15:25:00Z">
+                              <input size="16" type="text" value="" readonly>
+                              <span class="add-on"><i class="icon-remove"></i></span>
+                              <span class="add-on"><i class="icon-th"></i></span>
+                              <input type="hidden" id="mirror_field" value="" readonly />
+ 
+								<script type="text/javascript">
+								    var todaysDate = "2012-04-01T15:25:00Z";
+								    $(".form_datetime").datetimepicker({
+								        format: "dd MM yyyy - hh:ii",
+								        startDate: todaysDate,		       
+								        useCurrent: true,
+								        autoclose: true,
+								        linkField: "mirror_field",
+								        linkFormat: "yyyy-mm-dd hh:ii"
+								    });
+
+								</script>       
+
+                             </span></div>
+
+
+     <div class="dateRowsDiv"><span class="dateRowLabel">Selected Date based on your timezone:</span><span class="dateRowvalues" id="selectedTimezoneDate"></span></div>
+                    <div class="dateRowsDiv"><button id="converttoUtc">Send date to server</button></div>
+	    	  		<div class="dateRowsDiv"><span class="dateRowLabel">New Date in UTC:</span><span class="dateRowvalues" id="newDateinUtc"></span></div>
+
+	    	  		<div class="dateRowsDiv"><span class="dateRowLabel">Recieved UTC Date in Selected Timezone:</span><span id="datefromserverimlocal" class="dateRowvalues"></span></div>
+	    	  	</div>
+	    	  </div>
+	    	</div>
+	    </section>
+	<footer>By Surya Raj on 05 April 2016</footer>
+</body>
+</html>
